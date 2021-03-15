@@ -1,0 +1,21 @@
+/* *************** INPUT PINS *********************/
+PIN 1 = clk ; /* */
+PIN 2 = py ; /* */
+PIN 3 = ig ; /* */
+PIN 4 = v4 ; /* */
+PIN 5 = v3 ; /* */
+PIN 6 = v2 ; /* */
+PIN 7 = v1 ; /* */
+PIN 8 = v0 ; /* */
+/* *************** OUTPUT PINS *********************/
+PIN 16 = B ; /* */
+PIN 17 = C ; /* */
+PIN 18 = D ; /* */
+PIN 19 = E ; /* */
+PIN 20 = F ; /* */
+
+F.d = (((B&!C&F) # (!D&!E&F) # (D&E&F) #(!ig&C&F) # (ig&!B&F) # (ig&B&C&D&!F) #(!ig&!B&!C&!D&!F)# (!ig&!B&!C&!E&!F)) & (!py)) # (py&v0);
+E.d = (((!ig&E&!F) #(!B&D&E)# (C&!D&E)# (B&!C&E)# (ig&!B&E)# (!ig&!B&!C&!D&F) #(ig&B&C&D&!E&!F)) & (!py)) # (py&v1);
+D.d = (((C&!D&!F) #(B&!C&!D) #(ig&!B&!D) #(!ig&!D&F)# (!ig&!B&!C&!E) #(ig&B&C&!E&F)# (ig&B&C&E&!F)) & (!py)) # (py&v2);
+C.d = (((ig&!C&D) #(!ig&!C&!D) # (!ig&!C&!E)# (!ig&C&D)# (ig&!B&C&!D) #(ig&C&!D&!E) #(ig&C&!D&!F)) & (!py) ) # (py&v3);
+B.d = (((B&!C&D)# (ig&B&!C) #(!ig&!C&D&!E)# (B&C&!D&!E) # (B&C&!D&!F)# (ig&!B&C&D) #(!ig&!B&!C&!D)) & (!py)) # (py&v4);
